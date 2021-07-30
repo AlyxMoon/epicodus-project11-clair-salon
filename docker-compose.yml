@@ -8,19 +8,10 @@ services:
     environment:
       MYSQL_DATABASE: allister_kays
       MYSQL_ROOT_PASSWORD: epicodus
-  web:
-    build: .
-    depends_on: 
-      - db
-    ports:
-      - '5000:5000'
-    volumes:
-      - ./HairSalon:/app
-    working_dir: /app
-    command: dotnet run
-
   db_test:
     image: mysql
+    ports:
+      - '3306:3306'
     environment:
       MYSQL_DATABASE: allister_kays_test
       MYSQL_ROOT_PASSWORD: epicodus
