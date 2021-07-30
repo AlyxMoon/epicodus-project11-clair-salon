@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: allister_kays
+      MYSQL_ROOT_PASSWORD: epicodus
+  web:
+
+
+  db_test:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: allister_kays_test
+      MYSQL_ROOT_PASSWORD: epicodus
+
+  test:
