@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Salon.Models;
+using HairSalon.Models;
 
 namespace HairSalon
 {
@@ -27,15 +27,16 @@ namespace HairSalon
       string connection = Configuration["ConnectionStrings:DefaultConnection"];
       ServerVersion version = ServerVersion.AutoDetect(connection);
 
-      services.AddEntityFrameworkMySql()
-        .AddDbContext<DatabaseContext>(options => options.UseMySql(
-          connection, 
-          version
-        ));
+      // services.AddEntityFrameworkMySql()
+      //   .AddDbContext<DatabaseContext>(options => options.UseMySql(
+      //     connection, 
+      //     version
+      //   ));
     }
 
     public void Configure(IApplicationBuilder app)
     {
+      System.Console.WriteLine("Hello world");
       app.UseDeveloperExceptionPage();
       app.UseRouting();
 

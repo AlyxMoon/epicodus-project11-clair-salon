@@ -2,7 +2,7 @@
 
 namespace HairSalon.Controllers
 {
-  [Route("")]
+  [Route("/")]
   public class HomeController : Controller
   {
     [HttpGet]
