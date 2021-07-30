@@ -36,7 +36,6 @@ namespace HairSalon
 
     public void Configure(IApplicationBuilder app)
     {
-      System.Console.WriteLine("Hello world");
       app.UseDeveloperExceptionPage();
       app.UseRouting();
 
