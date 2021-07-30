@@ -27,11 +27,11 @@ namespace HairSalon
       string connection = Configuration["ConnectionStrings:DefaultConnection"];
       ServerVersion version = ServerVersion.AutoDetect(connection);
 
-      // services.AddEntityFrameworkMySql()
-      //   .AddDbContext<DatabaseContext>(options => options.UseMySql(
-      //     connection, 
-      //     version
-      //   ));
+      services.AddEntityFrameworkMySql()
+        .AddDbContext<DatabaseContext>(options => options.UseMySql(
+          connection, 
+          version
+        ));
     }
 
     public void Configure(IApplicationBuilder app)
