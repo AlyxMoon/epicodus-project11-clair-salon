@@ -15,7 +15,7 @@ done
 
 USER_NAME="${USER_NAME:-root}"
 USER_PASS="${USER_PASS:-epicodus}"
-DB_NAME="${DB_NAME:-epicodus_week10_best_restaurants}"
+DB_NAME="${DB_NAME:-allister_kays}"
 
 echo "Running mysql as user: $USER_NAME"
 if [ "$USE_A_PASSWORD" == true ]; then
@@ -28,9 +28,9 @@ echo "Will use the following database (creating if needed): $DB_NAME"
 if [ "$USE_A_PASSWORD" == true ]; then
   mysql -u $USER_NAME -p=$USER_PASS -e "DROP DATABASE IF EXISTS $DB_NAME"
   mysql -u $USER_NAME -p=$USER_PASS -e "CREATE DATABASE $DB_NAME"
-  mysql -u $USER_NAME -p=$USER_PASS $DB_NAME -e "source sql-create-tables.sql"
+  mysql -u $USER_NAME -p=$USER_PASS $DB_NAME -e "source ../allister_kays.sql"
 else
   mysql -u $USER_NAME -e "DROP DATABASE IF EXISTS $DB_NAME"
   mysql -u $USER_NAME -e "CREATE DATABASE $DB_NAME"
-  mysql -u $USER_NAME $DB_NAME -e "source ./sql-create-tables.sql"
+  mysql -u $USER_NAME $DB_NAME -e "source ../allister_kays.sql"
 fi
