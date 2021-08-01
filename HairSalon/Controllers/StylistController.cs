@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
@@ -17,7 +18,8 @@ namespace HairSalon.Controllers
     [HttpGet]
     public ActionResult Index ()
     {
-      return View(_db.Stylists.ToList());
+      List<Stylist> stylists = _db.Stylists.ToList();
+      return View(stylists);
     }
 
     [HttpPost]

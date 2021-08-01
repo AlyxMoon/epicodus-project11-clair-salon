@@ -1,0 +1,16 @@
+@model HairSalon.Models.Stylist
+
+<h1>Create a new Stylist</h1>
+
+<form asp-action="Create">
+  
+  <label asp-for="Name"></label>
+  <input asp-for="Name" required />
+
+  <label asp-for="Description"></label>
+  <textarea asp-for="Description"></textarea>
+
+  <div asp-validation-summary="All"></div>
+
+  <button type="submit">Create Stylist</button>
+</form>
