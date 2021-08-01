@@ -28,6 +28,18 @@ namespace HairSalon.Controllers
       return View(Clients);
     }
 
+    [HttpGet("stylists/{stylistId}/clients")]
+    public ActionResult IndexByStylist (int stylistId)
+    {
+      ViewBag.Stylists = new SelectList(_db.Stylists, "Id", "Name");
+
+      List<Client> Clients = _db.Clients
+        .Where(item => item.Id_Stylist == stylistId)
+        .Include(item => item.Stylist)
+        .ToList();
+
+      return View("Index", Clients);
+    }
 
     [HttpGet("/clients/new")]
     public ActionResult AddNew ()
@@ -40,6 +52,13 @@ namespace HairSalon.Controllers
     {
       ViewBag.Stylists = new SelectList(_db.Stylists, "Id", "Name");
       return View("AddNew", new Client() { Id_Stylist = stylistId });
+    }
+
+    [HttpGet("/clients/{clientId}")]
+    public ActionResult Details (int clientId)
+    {
+      Client item = _db.Clients.FirstOrDefault(item => item.Id == clientId);
+      return View(item);
     }
 
     [HttpPost("/clients")]

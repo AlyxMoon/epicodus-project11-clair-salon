@@ -31,6 +31,13 @@ namespace HairSalon.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpGet("{stylistId}")]
+    public ActionResult Details (int stylistId)
+    {
+      Stylist item = _db.Stylists.FirstOrDefault(item => item.Id == stylistId);
+      return View(item);
+    }
+
     [HttpGet("{stylistId}/delete")]
     public ActionResult Delete (int stylistId)
     {

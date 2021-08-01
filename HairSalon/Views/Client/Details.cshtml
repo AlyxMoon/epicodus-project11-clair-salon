@@ -1,0 +1,34 @@
+@using HairSalon.Models
+@model Client
+@{
+  Layout = "_Layout";
+}
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Stylist</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a
+          asp-action="Index"
+          class="btn btn-secondary"
+        >Back to client list</a>
+        <a
+          asp-action="Delete"
+          asp-route-clientId="@Model.Id"
+          class="btn btn-danger"
+        >Delete</a>
+      </td>
+      <td>@Model.Id</td>
+      <td>@Model.Stylist.Name</td>
+      <td>@Model.Name</td>
+    </tr>
+  </tbody>
+</table>
