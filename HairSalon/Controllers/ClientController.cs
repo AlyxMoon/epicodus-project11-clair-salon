@@ -7,7 +7,6 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-  [Route("/clients")]
   public class ClientController : Controller
   {
     private readonly DatabaseContext _db;
@@ -17,7 +16,7 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    [HttpGet]
+    [HttpGet("/clients")]
     public ActionResult Index ()
     {
       ViewBag.Stylists = new SelectList(_db.Stylists, "Id", "Name");
@@ -29,7 +28,21 @@ namespace HairSalon.Controllers
       return View(Clients);
     }
 
-    [HttpPost]
+
+    [HttpGet("/clients/new")]
+    public ActionResult AddNew ()
+    {
+      return View(new Client());
+    }
+
+    [HttpGet("/stylists/{stylistId}/clients/new")]
+    public ActionResult AddNewToStylist (int stylistId)
+    {
+      ViewBag.Stylists = new SelectList(_db.Stylists, "Id", "Name");
+      return View("AddNew", new Client() { Id_Stylist = stylistId });
+    }
+
+    [HttpPost("/clients")]
     public ActionResult Create (Client item)
     {
       _db.Clients.Add(item);
@@ -38,7 +51,7 @@ namespace HairSalon.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet("{clientId}/delete")]
+    [HttpGet("/clients/{clientId}/delete")]
     public ActionResult Delete (int clientId)
     {
       Client item = _db.Clients.FirstOrDefault(item => item.Id == clientId);

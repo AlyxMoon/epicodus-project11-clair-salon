@@ -20,12 +20,16 @@
     {
       <tr>
         <td>
-          <a class="btn" href="/clients/@client.Id">
-            See Details
-          </a>
-          <a class="btn" href="/clients/@client.Id/delete">
-            Delete
-          </a>
+          <a
+            asp-action="Details"
+            asp-route-clientId="@client.Id"
+            class="btn btn-secondary"
+          >See Details</a>
+          <a
+            asp-action="Delete"
+            asp-route-clientId="@client.Id"
+            class="btn btn-danger"
+          > Delete</a>
         </td>
         <td>@client.Id</td>
         <td>@client.Stylist.Name</td>

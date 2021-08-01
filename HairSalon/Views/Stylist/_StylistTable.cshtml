@@ -21,16 +21,20 @@
     {
       <tr>
         <td>
-          <a class="btn" href="/stylists/@stylist.Id">
+          <a class="btn btn-secondary" href="/stylists/@stylist.Id">
             See Details
           </a>
-          <a class="btn" href="/stylists/@stylist.Id/clients">
+          <a class="btn btn-secondary" href="/stylists/@stylist.Id/clients">
             See Clients
           </a>
-          <a class="btn" href="/stylists/@stylist.Id/clients/new">
+          <a
+            asp-controller="Client"
+            asp-action="AddNewToStylist"
+            asp-route-stylistId="@stylist.Id"
+            class="btn btn-primary">
             Add Client
           </a>
-          <a class="btn" href="/stylists/@stylist.Id/delete">
+          <a class="btn btn-danger" href="/stylists/@stylist.Id/delete">
             Delete
           </a>
         </td>
