@@ -1,0 +1,36 @@
+@using HairSalon.Models
+@model System.Collections.Generic.List<Client>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Stylist</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (Model.Count == 0)
+    {
+      <tr><td colspan="5">No Clients Yet</td></tr>
+    }
+
+    @foreach (Client client in Model)
+    {
+      <tr>
+        <td>
+          <a class="btn" href="/clients/@client.Id">
+            See Details
+          </a>
+          <a class="btn" href="/clients/@client.Id/delete">
+            Delete
+          </a>
+        </td>
+        <td>@client.Id</td>
+        <td>@client.Stylist.Name</td>
+        <td>@client.Name</td>
+      </tr>
+    }
+  </tbody>
+</table>

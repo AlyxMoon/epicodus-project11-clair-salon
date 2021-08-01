@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HairSalon.Models
 {
+  [Table("client")]
   public class Client
   {
     public int Id { get; set; }

@@ -8,11 +8,11 @@ using HairSalon.Models;
 namespace HairSalon.Controllers
 {
   [Route("/clients")]
-  public class RestaurantController : Controller
+  public class ClientController : Controller
   {
     private readonly DatabaseContext _db;
 
-    public RestaurantController(DatabaseContext db)
+    public ClientController(DatabaseContext db)
     {
       _db = db;
     }

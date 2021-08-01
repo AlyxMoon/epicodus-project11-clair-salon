@@ -1,3 +1,8 @@
+@using HairSalon.Models
+@model System.Collections.Generic.List<Client>
 @{
   Layout = "_Layout";
 }
+
+<partial name="_FormAddNew" model="new Client()" />
+<partial name="_ClientTable" />
