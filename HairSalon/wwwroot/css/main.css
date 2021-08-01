@@ -50,3 +50,19 @@ nav ul {
 
   gap: 1rem;
 }
+
+nav .pull-right {
+  margin-left: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table tr {
+  border-bottom: 1px solid #000000AA;
+}
+
+table th, table td {
+  padding: 0.8em 0.4em;
+}
