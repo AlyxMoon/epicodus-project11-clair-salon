@@ -6,51 +6,51 @@
 -- SET FOREIGN_KEY_CHECKS=0;
 
 -- ---
--- Table 'stylist'
+-- Table 'stylists'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `stylist`;
+DROP TABLE IF EXISTS `stylists`;
 		
-CREATE TABLE `stylist` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NULL DEFAULT NULL,
-  `description` MEDIUMTEXT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `stylists` (
+  `Id` INTEGER NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(255) NULL DEFAULT NULL,
+  `Description` MEDIUMTEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`Id`)
 );
 
 -- ---
--- Table 'client'
+-- Table 'clients'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `client`;
+DROP TABLE IF EXISTS `clients`;
 		
-CREATE TABLE `client` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `id_stylist` INTEGER NOT NULL,
-  `name` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `clients` (
+  `Id` INTEGER NOT NULL AUTO_INCREMENT,
+  `IdStylist` INTEGER NOT NULL,
+  `Name` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`Id`)
 );
 
 -- ---
 -- Foreign Keys 
 -- ---
 
-ALTER TABLE `client` ADD FOREIGN KEY (id_stylist) REFERENCES `stylist` (`id`);
+ALTER TABLE `clients` ADD FOREIGN KEY (IdStylist) REFERENCES `stylists` (`Id`);
 
 -- ---
 -- Table Properties
 -- ---
 
--- ALTER TABLE `stylist` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `client` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `stylists` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `clients` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
 -- ---
 
--- INSERT INTO `stylist` (`id`,`name`,`description`) VALUES
+-- INSERT INTO `stylists` (`Id`,`Name`,`Description`) VALUES
 -- ('','','');
--- INSERT INTO `client` (`id`,`id_stylist`,`name`) VALUES
+-- INSERT INTO `clients` (`Id`,`IdStylist`,`Name`) VALUES
 -- ('','','');

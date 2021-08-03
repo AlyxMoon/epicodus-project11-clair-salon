@@ -34,7 +34,7 @@ namespace HairSalon.Controllers
       ViewBag.Stylists = new SelectList(_db.Stylists, "Id", "Name");
 
       List<Client> Clients = _db.Clients
-        .Where(item => item.Id_Stylist == stylistId)
+        .Where(item => item.IdStylist == stylistId)
         .Include(item => item.Stylist)
         .ToList();
 
@@ -51,7 +51,7 @@ namespace HairSalon.Controllers
     public ActionResult AddNewToStylist (int stylistId)
     {
       ViewBag.Stylists = new SelectList(_db.Stylists, "Id", "Name");
-      return View("AddNew", new Client() { Id_Stylist = stylistId });
+      return View("AddNew", new Client() { IdStylist = stylistId });
     }
 
     [HttpGet("/clients/{clientId}")]

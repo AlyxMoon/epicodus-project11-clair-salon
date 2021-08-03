@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HairSalon.Models
 {
-  [Table("stylist")]
+  [Table("stylists")]
   public class Stylist
   {
     public int Id { get; set; }

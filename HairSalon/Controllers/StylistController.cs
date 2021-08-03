@@ -42,6 +42,11 @@ namespace HairSalon.Controllers
     public ActionResult Delete (int stylistId)
     {
       Stylist item = _db.Stylists.FirstOrDefault(item => item.Id == stylistId);
+
+      item.Clients.ToList().ForEach(client => {
+        _db.Clients.Remove(client);
+      });
+
       _db.Stylists.Remove(item);
       _db.SaveChanges();
 

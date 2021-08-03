@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HairSalon.Models
 {
-  [Table("client")]
+  [Table("clients")]
   public class Client
   {
     public int Id { get; set; }
@@ -12,7 +12,7 @@ namespace HairSalon.Models
     [Required()]
     [DisplayName("Stylist")]
     [ForeignKey("Stylist")]
-    public int Id_Stylist { get; set; }
+    public int IdStylist { get; set; }
 
     [Required()]
     [DisplayName("Client Name")]

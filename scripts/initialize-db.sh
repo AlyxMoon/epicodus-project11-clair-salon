@@ -26,9 +26,9 @@ fi
 echo "Will use the following database (creating if needed): $DB_NAME"
 
 if [ "$USE_A_PASSWORD" == true ]; then
-  mysql -u $USER_NAME -p=$USER_PASS -e "DROP DATABASE IF EXISTS $DB_NAME"
-  mysql -u $USER_NAME -p=$USER_PASS -e "CREATE DATABASE $DB_NAME"
-  mysql -u $USER_NAME -p=$USER_PASS $DB_NAME -e "source ../allister_kays.sql"
+  mysql -u $USER_NAME -p$USER_PASS -e "DROP DATABASE IF EXISTS $DB_NAME"
+  mysql -u $USER_NAME -p$USER_PASS -e "CREATE DATABASE $DB_NAME"
+  mysql -u $USER_NAME -p$USER_PASS $DB_NAME -e "source ../allister_kays.sql"
 else
   mysql -u $USER_NAME -e "DROP DATABASE IF EXISTS $DB_NAME"
   mysql -u $USER_NAME -e "CREATE DATABASE $DB_NAME"
